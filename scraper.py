@@ -21,14 +21,6 @@ containers = page_soup.findAll("div", {"class":"product-tile"})
 #check to see if anything is scraping and if its the correct info
 #print(containers)
 
-#Makes a CSV file with the name of products    
-filename = "products.csv"
-f = open(filename, "w")
-
-#Writes the headers into the products.csv file
-headers = "product_name,product_type, price, promotion\n"
-f.write(headers)
-
 #Loops through each product        
 for container in containers:
     
@@ -36,4 +28,16 @@ for container in containers:
     name_container= container.findAll("div", {"class":"product-name"})
     product_name = name_container[0].text
     print(product_name)
+
+    #getting the product type 
+    type_container= container.findAll("div", {"class":"product-type"})
+    product_type = type_container[0].text
+    print(product_type)
+
+    #getting the products price 
+    price_container= container.findAll("span", {"title":"Sale Price"})
+    product_price = price_container[0].text
+    print(product_price)
+
+
 
