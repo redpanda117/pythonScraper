@@ -26,18 +26,21 @@ for container in containers:
     
     #getting the name of the product
     name_container= container.findAll("div", {"class":"product-name"})
-    product_name = name_container[0].text
-    print(product_name)
+    product_name = name_container[0].text.strip()
+    #print in console to check scrape data
+    print("name:" + product_name)
 
     #getting the product type 
     type_container= container.findAll("div", {"class":"product-type"})
-    product_type = type_container[0].text
-    print(product_type)
+    product_type = type_container[0].text.strip()
+    print("type:" + product_type)
 
     #getting the products price 
     price_container= container.findAll("span", {"title":"Sale Price"})
-    product_price = price_container[0].text
-    print(product_price)
+    product_price = price_container[0].text.strip()
+    print("price:" + product_price)
+
+    #write scraped information to file 
 
 
 
